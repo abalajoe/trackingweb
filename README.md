@@ -1,5 +1,5 @@
 # trackingweb
-Supply Chain Track and Trace System - Web Application
+Supply Chain Track and Trace System - Angular Web Application
 
 # Demo
 I have deployed a demo application at http://159.223.29.248/
