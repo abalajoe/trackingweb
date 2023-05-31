@@ -1,0 +1,8 @@
+nav {
+  padding: 12px;
+  font-family: 'Changa', sans-serif;
+}
+
+.nav-item{
+  cursor: pointer;
+}

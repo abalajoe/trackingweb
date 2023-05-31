@@ -1,0 +1,15 @@
+.btn-color{
+  background-color: #0e1c36;
+  color: #fff;
+
+}
+h2, input, button {
+  font-family: 'Changa', sans-serif;
+}
+.cardbody-color{
+  background-color: #ebf2fa;
+}
+
+a{
+  text-decoration: none;
+}

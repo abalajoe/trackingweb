@@ -1,0 +1,223 @@
+<ng-template #status [ngIf]="modalData.tag == 'create'">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title-login">Create Supply Chain</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form #createProductForm="ngForm">
+      <div class="mb-3">
+        <div class="form-floating mb-3">
+          <input name="productname" type="text" class="form-control" id="productname"
+                 #productname="ngModel" [(ngModel)]="modalData.productname"
+                 [class.is-invalid]="productname.invalid && productname.touched" ngModel required>
+          <label  for="productname">Product Name</label>
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="form-floating mb-3">
+          <select name="productquantity" class="form-select" id="productquantity" #productquantity="ngModel"
+                  [class.is-invalid]="productquantity.invalid && productquantity.touched"
+                  [(ngModel)]="modalData.productquantity" ngModel required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <label  for="productname" style="font-size: 13px; color: #666; font-family: 'Work Sans', sans-serif">Quantity</label>
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="form-floating mb-3">
+          <input name="cost" type="number" class="form-control" id="cost"
+                 #cost="ngModel" [(ngModel)]="modalData.cost"
+                 [class.is-invalid]="cost.invalid && cost.touched" ngModel required>
+          <label  for="cost">Cost</label>
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="form-floating mb-3">
+          <select name="recipientname" class="form-select" id="recipientname" #recipientname="ngModel"
+                  [class.is-invalid]="recipientname.invalid && recipientname.touched"
+                  [(ngModel)]="modalData.recipientname" ngModel required>
+            <option *ngFor="let u of user" [value]="u.email">
+              {{u.name}}
+            </option>
+          </select>
+          <label  for="productname">Recipient</label>
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="form-floating mb-3">
+          <input name="custodian" type="text" class="form-control" id="custodian"
+                 #custodian="ngModel" [(ngModel)]="modalData.custodian"
+                 [class.is-invalid]="custodian.invalid && custodian.touched" ngModel required>
+          <label for="custodian">Custodian</label>
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="form-floating mb-3">
+          <input name="location" type="text" class="form-control" id="location"
+                 #location="ngModel" [(ngModel)]="modalData.location"
+                 [class.is-invalid]="location.invalid && location.touched" ngModel required>
+          <label for="location">Location</label>
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="form-floating mb-3">
+          <input name="deliveryaddress" type="text" class="form-control" id="deliveryaddress"
+                 #deliveryaddress="ngModel" [(ngModel)]="modalData.deliveryaddress"
+                 [class.is-invalid]="deliveryaddress.invalid && deliveryaddress.touched" ngModel required>
+          <label for="deliveryaddress">Delivery Address</label>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button (click)="passBack($event)" [disabled]="createProductForm.form.invalid" type="button" class="btn btn-primary w-100">Submit</button>
+
+  </div>
+</ng-template>
+
+<ng-template #status [ngIf]="modalData.tag == 'status'">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title-login">Update Supply Chain</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form #eventProductForm="ngForm">
+      <div class="mb-3">
+        <div class="form-floating mb-3">
+          <input name="custodianupdate" type="text" class="form-control" id="custodianupdate"
+                 #custodianupdate="ngModel"
+                 [class.is-invalid]="custodianupdate.invalid && custodianupdate.touched"
+                 [(ngModel)]="modalData.custodianupdate" ngModel required>
+          <label for="custodianupdate" style="font-size: 13px; color: #666; font-family: 'Work Sans', sans-serif">Custodian</label>
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="form-floating mb-3">
+          <input name="locationupdate" type="text" class="form-control" id="locationupdate"
+                 #locationupdate="ngModel"
+                 [class.is-invalid]="locationupdate.invalid && locationupdate.touched"
+                 [(ngModel)]="modalData.locationupdate" ngModel required>
+          <label for="locationedit" style="font-size: 13px; color: #666; font-family: 'Work Sans', sans-serif">Location</label>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button (click)="passBack($event)" [disabled]="eventProductForm.form.invalid" type="button" class="btn btn-primary w-100">Submit</button>
+
+  </div>
+</ng-template>
+
+<ng-template #edit [ngIf]="modalData.tag == 'edit'">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title-login">Edit</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form #editProductForm="ngForm">
+      <div class="mb-3">
+        <div class="form-floating mb-3">
+          <input name="nameedit" type="text" class="form-control" id="nameedit"
+                 #nameedit="ngModel"
+                 [class.is-invalid]="nameedit.invalid && nameedit.touched"
+                 [(ngModel)]="modalData.name" ngModel required>
+          <label for="nameedit" style="font-size: 13px; color: #666; font-family: 'Work Sans', sans-serif">Name</label>
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="form-floating mb-3">
+          <select name="quantityedit" class="form-select" id="quantityedit" #quantityedit="ngModel"
+                  [class.is-invalid]="quantityedit.invalid && quantityedit.touched" [(ngModel)]="modalData.quantity" ngModel required>
+            <option value="undefined" hidden>Quantity</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <label  for="quantityedit" style="font-size: 13px; color: #666; font-family: 'Work Sans', sans-serif">Quantity</label>
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="form-floating mb-3">
+          <input name="costedit" type="text" class="form-control" id="costedit"
+                 #costedit="ngModel"
+                 [class.is-invalid]="costedit.invalid && costedit.touched"
+                 [(ngModel)]="modalData.cost" ngModel required>
+          <label for="custodianedit" style="font-size: 13px; color: #666; font-family: 'Work Sans', sans-serif">Cost</label>
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="form-floating mb-3">
+          <input name="custodianedit" type="text" class="form-control" id="custodianedit"
+                 #custodianedit="ngModel"
+                 [class.is-invalid]="custodianedit.invalid && custodianedit.touched"
+                 [(ngModel)]="modalData.custodian" ngModel required>
+          <label for="custodianedit" style="font-size: 13px; color: #666; font-family: 'Work Sans', sans-serif">Custodian</label>
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="form-floating mb-3">
+          <input name="locationedit" type="text" class="form-control" id="locationedit"
+                 #locationedit="ngModel"
+                 [class.is-invalid]="locationedit.invalid && locationedit.touched"
+                 [(ngModel)]="modalData.location" ngModel required>
+          <label for="locationedit" style="font-size: 13px; color: #666; font-family: 'Work Sans', sans-serif">Location</label>
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="form-floating mb-3">
+          <input name="deliveryaddressedit" type="text" class="form-control" id="deliveryaddressedit"
+                 #deliveryaddressedit="ngModel"
+                 [class.is-invalid]="deliveryaddressedit.invalid && deliveryaddressedit.touched"
+                 [(ngModel)]="modalData.deliveryaddress" ngModel required>
+          <label for="deliveryaddressedit" style="font-size: 13px; color: #666; font-family: 'Work Sans', sans-serif">Delivery Address</label>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button (click)="passBack($event)" [disabled]="editProductForm.form.invalid" type="button" class="btn btn-primary w-100">Submit</button>
+
+  </div>
+</ng-template>
+
+<ng-template #edit [ngIf]="modalData.tag == 'events'">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title-login">{{modalData.name}} Events</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <h4 *ngIf="event.length == 0">No events available for the {{modalData.name}}</h4>
+    <div class="container" *ngIf="event.length != 0">
+      <div class="row">
+        <div class="col" style="color: blue">
+          Custodian
+        </div>
+        <div class="col" style="color: blue">
+          Location
+        </div>
+        <div class="col" style="color: blue">
+          Date
+        </div>
+      </div>
+      <div class="row" *ngFor="let item of event">
+        <div class="col">
+          {{item.custodian}}
+        </div>
+        <div class="col">
+          {{item.location}}
+        </div>
+        <div class="col">
+          {{item.createddate}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+  </div>
+</ng-template>

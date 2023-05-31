@@ -1,0 +1,17 @@
+table.center-all td,th{
+  text-align :center;
+}
+
+table.datatable  {
+  font-family: 'Changa' , sans-serif !important;
+  font-size: 15px;
+  text-align :center;
+}
+
+h4, label, input, button {
+  font-family: 'Changa' , sans-serif !important;
+}
+
+input {
+  font-size: 13px;
+}

@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-6 offset-md-3">
+      <h2 class="text-center text-dark mt-5">Supply Chain Track and Trace System</h2>
+      <div class="card my-5">
+
+        <form class="card-body cardbody-color p-lg-5" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+          <div class="mb-3">
+            <input type="email" class="form-control" name="email" id="Email" aria-describedby="emailHelp"
+                   placeholder="Email" #email="ngModel" ngModel required>
+          </div>
+          <div class="mb-3">
+            <input type="password" class="form-control" name="password" id="password" placeholder="password"
+                   #password="ngModel" ngModel required>
+          </div>
+          <div class="text-center">
+            <input type="submit" class="btn btn-color px-5 mb-5 w-100" value="Sign In" id="submit" [disabled]="loginForm.form.invalid">
+            <img style="margin-top: 15px" *ngIf="loading"
+                 src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

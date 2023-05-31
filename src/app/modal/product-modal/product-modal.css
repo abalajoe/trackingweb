@@ -1,0 +1,19 @@
+.modal-header, h3,h4, .modal-body {
+  font-family: 'Changa', sans-serif;
+}
+
+h3{
+  color: brown;
+  font-family: 'Changa', sans-serif;
+}
+
+h4 {
+  font-family: 'Changa', sans-serif;
+  color: #0071c5;
+}
+
+input, select {
+  font-size: 13px;
+  font-family: 'Changa', sans-serif;
+}
+
